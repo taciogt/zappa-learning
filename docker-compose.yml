@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  lambda-build:
+    command: bash
+    build:
+      dockerfile: dockerfiles/lambda-build.Dockerfile
+      context: .
+    environment:
+      AWS_PROFILE: zappa
+    volumes:
+      - .:/var/task
+      - ~/.aws/:/root/.aws
